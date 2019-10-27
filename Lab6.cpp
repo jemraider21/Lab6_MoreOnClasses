@@ -18,6 +18,7 @@ class Month{
 		string name;
 		int monthNumber;
 	public:
+		// Constructors
 		Month(){
 			setName("January");
 			setMonthNum(1);
@@ -35,6 +36,7 @@ class Month{
 		void setName(string name){
 			this->name = name;
 		}
+		// Set the appropriate month name based on the month number
 		void setCorrectName(int monthNumber){
 			if(monthNumber == 1){setName("January");}
 			else if(monthNumber == 2){setName("February");}
@@ -52,6 +54,7 @@ class Month{
 		void setMonthNum(int monthNum){
 			this->monthNumber = monthNum;
 		}
+		// Set the appropriate month number based on the name
 		void setCorrectMonthNum(string name){
 			if(name == "January"){ setMonthNum(1); } 
 			else if(name == "February"){ setMonthNum(2); } 
@@ -106,11 +109,13 @@ class Month{
 			setMonthNum(month2.monthNumber);
 		}
 
+		// Overload output <<
 		friend ostream& operator << (ostream &out, Month &month){
 			out << "The month is " << month.name << " and the number is " << month.monthNumber << endl;
 			return out;
 		}
 
+		// Overload input >>
 		friend istream& operator >> (istream &input, Month &month){
 			string newMonth;
 
