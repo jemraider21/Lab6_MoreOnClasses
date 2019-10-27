@@ -35,6 +35,7 @@ class Month{
 		// Setter functions
 		void setName(string name){
 			this->name = name;
+			
 		}
 		// Set the appropriate month name based on the month number
 		void setCorrectName(int monthNumber){
