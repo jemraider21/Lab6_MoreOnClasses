@@ -74,14 +74,45 @@ class Month{
 		int getMonthNum(){
 			return monthNumber;
 		}
+
+		// Overloading functions
+		Month& operator++ (){
+			if(monthNumber++ == 13){
+				setMonthNum(1);
+				setCorrectName(1);
+			} else {
+				setMonthNum(monthNumber++);
+				setCorrectName(monthNumber);
+			}
+
+			return *this;
+		}
+		Month operator++(int){
+			Month temp = *this;
+
+			if(monthNumber++ == 13){
+				setMonthNum(1);
+				setCorrectName(1);
+			} else {
+				setMonthNum(monthNumber++);
+				setCorrectName(monthNumber);
+			}
+
+			return temp;
+		}
+
+		void operator= (const Month& month2){
+			setName(month2.name);
+			setMonthNum(month2.monthNumber);
+		}
 };
 
 int main()
 {
 	Month m1("February");
-	cout << m1.getMonth() << endl;
-	cout << m1.getMonthNum() << endl;
+	Month m2;
 
-	system("Pause");
+	cout << m1 << endl;
+
 	return 0;
 }
