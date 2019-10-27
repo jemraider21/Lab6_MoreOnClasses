@@ -68,10 +68,10 @@ class Month{
 		}
 
 		// Getter functions
-		string getMonth(){
+		string getMonthName(){
 			return name;
 		}
-		int getMonthNum(){
+		int getMonthNumber(){
 			return monthNumber;
 		}
 
@@ -105,14 +105,47 @@ class Month{
 			setName(month2.name);
 			setMonthNum(month2.monthNumber);
 		}
+
+		friend ostream& operator << (ostream &out, Month &month){
+			out << "The month is " << month.name << " and the number is " << month.monthNumber << endl;
+			return out;
+		}
+
+		friend istream& operator >> (istream &input, Month &month){
+			string newMonth;
+
+			input >> newMonth;
+			month.setName(newMonth);
+			month.setCorrectMonthNum(newMonth);
+
+			return input;
+		}
 };
 
-int main()
-{
+int main(){
 	Month m1("February");
-	Month m2;
+	Month m2, m3, m4;
 
-	cout << m1 << endl;
+	cout << m1.getMonthName() << endl;
+	cout << m1.getMonthNumber() << endl;
+
+	cout << endl;
+	cout << m1;
+
+	cout << endl;
+	m2 = ++m1;
+	cout << m1;
+	cout << m2;
+	cout << endl;
+	m3 = m1++;
+	cout << m1;
+	cout << m3;
+
+	cout << endl;
+	cout << "Enter the name of a month: ";
+	cin >> m4;
+
+	cout << m4;
 
 	return 0;
 }
