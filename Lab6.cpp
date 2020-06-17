@@ -39,18 +39,20 @@ class Month{
 		}
 		// Set the appropriate month name based on the month number
 		void setCorrectName(int monthNumber){
-			if(monthNumber == 1){setName("January");}
-			else if(monthNumber == 2){setName("February");}
-			else if(monthNumber == 3){setName("March");}
-			else if(monthNumber == 4){setName("April");}
-			else if(monthNumber == 5){setName("May");}
-			else if(monthNumber == 6){setName("June");}
-			else if(monthNumber == 7){setName("July");}
-			else if(monthNumber == 8){setName("August");}
-			else if(monthNumber == 9){setName("September");}
-			else if(monthNumber == 10){setName("October");}
-			else if(monthNumber == 11){setName("November");}
-			else if(monthNumber == 12){setName("December");}
+			switch(monthNumber){
+				case 1: setName("January"); break;
+				case 2: setName("February"); break;
+				case 3: setName("March"); break;
+				case 4: setName("April"); break;
+				case 5: setName("May"); break;
+				case 6: setName("June"); break;
+				case 7: setName("July"); break;
+				case 8: setName("August"); break;
+				case 9: setName("September"); break;
+				case 10: setName("October"); break;
+				case 11: setName("November"); break;
+				default: setName("December"); break;
+			}
 		}
 		void setMonthNum(int monthNum){
 			this->monthNumber = monthNum;
